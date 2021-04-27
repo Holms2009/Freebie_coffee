@@ -2,9 +2,10 @@
 
 // Shop slider:
 
-let btnRight = document.querySelector('.btn_right');
-let btnLeft = document.querySelector('.btn_left');
-let shopCards = document.querySelectorAll('.coffee_card');
+let storeBlock = document.querySelector('.coffee_store_block')
+let btnRight = storeBlock.querySelector('.btn_right');
+let btnLeft = storeBlock.querySelector('.btn_left');
+let shopCards = storeBlock.querySelectorAll('.coffee_card');
 let sliderPosition = 0;
 let rightOpacity = 4;
 let leftOpacity = -2;
