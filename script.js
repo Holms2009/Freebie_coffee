@@ -66,16 +66,94 @@ btnLeft.addEventListener('click', function () {
 
 // Gift-cards toggle:
 
+let images = [
+    'img/giftset_1.png',
+    'img/giftset_2.png',
+    'img/giftset_3.png'
+]
+
 let giftCard = document.querySelector('.gift_card');
 let buttons = giftCard.querySelectorAll('button');
+let cards = giftCard.querySelectorAll('.gift_card_content');
+let currentImage = giftCard.querySelector('img');
 
-for (let i=0; i < buttons.length; i++) {
-    addListenerForButton(buttons[i]);
+for (let i = 0; i < buttons.length; i++) {
+    addListenerForButton(buttons[i], images[i], cards[i]);
 }
 
-function addListenerForButton(button) {
-    button.addEventListener('click', function() {
-            for (let btn of buttons) btn.classList.remove('selector_btn_active');     
-            button.classList.add('selector_btn_active');
+function addListenerForButton(button, image, card) {
+    button.addEventListener('click', function () {
+
+        for (let btn of buttons) {
+            btn.classList.remove('selector_btn_active');
+        }
+
+        button.classList.add('selector_btn_active');
+
+        for (let card of cards) {
+            card.classList.add('hidden_gift');
+        }
+
+        card.classList.remove('hidden_gift');
+        currentImage.src = image;        
     })
 }
+
+// Combos slider:
+
+let combosBlock = document.querySelector('.coffee_combos')
+let comboBtnRight = combosBlock.querySelector('.btn_right');
+let comboBtnLeft = combosBlock.querySelector('.btn_left');
+let shopBigCards = combosBlock.querySelectorAll('.coffee_big_card');
+let comboSliderPosition = 0;
+let comboRightOpacity = 3;
+let comboLeftOpacity = -1;
+
+{
+    shopBigCards[comboRightOpacity].style.opacity = 0.5;
+    shopBigCards[comboRightOpacity + 1].style.opacity = 0.5;
+}
+
+comboBtnRight.addEventListener('click', function () {
+    comboSliderPosition -= 390;
+
+    {
+        comboLeftOpacity += 1;
+        shopBigCards[comboLeftOpacity].style.opacity = 0.5;
+
+        shopBigCards[comboRightOpacity].style.opacity = 1;
+
+        comboRightOpacity += 1;
+        if (comboRightOpacity < shopBigCards.length - 1) {
+            shopBigCards[comboRightOpacity + 1].style.opacity = 0.5;
+        }
+    }
+
+    if (comboSliderPosition < 0) comboBtnLeft.classList.remove('slider_btn_hide');
+    if (-((shopBigCards.length - 3) * 390) === comboSliderPosition) comboBtnRight.classList.add('slider_btn_hide');
+
+    for (let card of shopBigCards) {
+        card.style.left = comboSliderPosition + 'px';
+    };
+
+});
+
+comboBtnLeft.addEventListener('click', function () {
+    comboSliderPosition += 390;
+
+    {
+        shopBigCards[comboLeftOpacity].style.opacity = 1;
+        comboLeftOpacity -= 1;
+
+        comboRightOpacity -= 1;
+        shopBigCards[comboRightOpacity].style.opacity = 0.5;
+    }
+
+    if (comboSliderPosition === 0) comboBtnLeft.classList.add('slider_btn_hide');
+    if (-((shopBigCards.length - 3) * 390) < comboSliderPosition) comboBtnRight.classList.remove('slider_btn_hide');
+
+    for (let card of shopBigCards) {
+        card.style.left = comboSliderPosition + 'px';
+    };
+
+});

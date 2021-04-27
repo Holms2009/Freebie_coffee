@@ -186,12 +186,12 @@ header {
     margin: 0;
     background: linear-gradient(to right,#415167 50%, #F9FBFF 50%);
     text-align: center;
+    overflow-x: hidden;
 }
 
 .store_container {
     padding: 90px 0 127px 0;
     background: linear-gradient(to right,#415167 384px, #F9FBFF 384px);
-    overflow-x: hidden;
 }
 
 .slider_btn {
@@ -324,7 +324,7 @@ header {
     margin-bottom: 34px;
 }
 
-.coffee_card .card_links {
+.card_links {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -520,9 +520,14 @@ header {
     color: #415167;
 }
 
+.hidden_gift {
+    display: none;
+}
+
 .coffee_combos {
     background: linear-gradient(to right, #F9FBFF 50%, #415167 50%);
     text-align: center;
+    overflow-x: hidden;
 }
 
 .combo_container {
@@ -531,30 +536,68 @@ header {
 }
 
 .coffee_combos .coffee_big_cards {
+    width: 1140px;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-wrap: nowrap;
     gap: 30px;
     position: relative;
 }
 
+.coffee_big_cards::before {
+    content: '';
+    width: 100%;
+    height: 560px;
+    position: absolute;
+    top: 0;
+    right: -1140px;
+    z-index: 5;
+}
+
+.coffee_big_cards::after {
+    content: '';
+    width: 100%;
+    height: 560px;
+    position: absolute;
+    top: 0;
+    left: -1140px;
+    z-index: 5;
+}
+
 .coffee_combos .coffee_big_card {
-    display: flex;
-    flex-direction: column;
+    padding: 42px;
+    padding-top: 300px;
     width: 360px;
     height: 562px;
+    display: flex;
+    flex-direction: column;    
     background-color: #ffffff;
+    position: relative;
+    box-sizing: border-box;
+    text-align: start;
+    flex-shrink: 0;
+    transition: all 0.5s;
 }
 
 .coffee_big_card img {
     order: -2;
-    margin-bottom: 42px;
+    width: 360px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .coffee_big_card .price_block {
     margin-bottom: 9px;
+    margin-top: 42px;
     order: -1;
     display: flex;
+}
+
+.price_block .discounted_price {
+    text-decoration: line-through;
 }
 
 .price_block p {
@@ -565,6 +608,25 @@ header {
 .coffee_big_card h4 {
     margin: 0;
     margin-bottom: 10px;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+.coffee_big_card .coffee_card_description {
+    margin: 0;
+    margin-bottom: 32px;
+    font-size: 15.5px;
+    font-weight: 300;
+    line-height: 22px;
+}
+
+.coffee_big_cards .btn_left {
+    left: -66px;
+}
+
+.coffee_big_cards .btn_right {
+    right: -66px;
 }
 
 
