@@ -6,7 +6,6 @@ body {
     font-weight: 400;
     line-height: 20px;
     background-color: #f2f2f2;
-    overflow-x: hidden;
 }
 
 .container {
@@ -188,6 +187,7 @@ header {
 .store_container {
     padding: 90px 0 127px 0;
     background: linear-gradient(to right,#415167 384px, #F9FBFF 384px);
+    overflow-x: hidden;
 }
 
 .slider_btn {
@@ -295,7 +295,7 @@ header {
     align-items: flex-start;
 }
 
-.coffee_card .price {
+.price {
     order: -1;
     color: #C7A17A;
     text-transform: uppercase;
@@ -326,32 +326,36 @@ header {
     align-items: center;
 }
 
-.coffee_card .solid_btn {
+.solid_btn {
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
     margin-right: 18px;
     padding: 6px 15px 8px 17px;
     width: 133px;
-    height: 32px;
-    box-sizing: border-box;
+    height: 32px;    
     background-color: #C7A17A;
     border-radius: 16px;
 
     font-size: 16px;
-    line-height: 22px;
     font-weight: 700;
+    line-height: 22px;
     text-decoration: none;
     text-transform: uppercase;
     color: #ffffff;
 }
 
-.coffee_card .solid_btn:hover {
+.solid_btn:hover {
         background-color: #c08d59;
 }
 
-.coffee_card .solid_btn:active {
+.solid_btn:active {
         background-color: #c08d5980;
 }
 
-.coffee_card .coffee_card_anchor {
+.coffee_card_anchor {
+    box-sizing: border-box;
+    display: inline-block;
     padding: 8px 11px 2px 11px;
     font-size: 16px;
     line-height: 22px;
@@ -359,4 +363,207 @@ header {
     text-decoration: none;
     text-transform: uppercase;
     color: #000000;
+}
+
+.giftsets_block {
+    background: linear-gradient(to right, #edf0f5 50%, #F9FBFF 50%);
+}
+
+.giftsets_container {
+    padding: 86px 0 125px 0;
+    background: linear-gradient(to right, #edf0f5 1075px, #F9FBFF 1075px);
+    text-align: center;
+}
+
+.gift_card {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 1138px;
+    height: 463px;
+    background: linear-gradient(to right, #edf0f5 256px, #F9FBFF 256px);
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 -3px 0 0 rgba(237, 240, 245, 0.5);
+}
+
+.giftsets_block .selector_btn {
+    width: 88px;
+    height: 154px;
+    border: none;
+    background-color: #edf0f5;
+    color: rgba(65, 81, 103, 0.3);
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: color 0.1s;
+    box-shadow: 7px 0 10px -10px rgba(65, 81, 103, 0.3) inset;
+}
+
+.giftsets_block .selector_btn:hover {
+    color: rgba(65, 81, 103, 1);
+}
+
+.giftsets_block .selector_btn_active {
+    color: rgba(65, 81, 103, 1);
+    background-color: #f9fbff;
+    border-left: 1px solid #edf0f5;
+    box-shadow: none;
+}
+
+.gift_card_content {
+    text-align: start;
+    padding: 64px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.gift_card_content h4 {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #232C38;
+
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.gift_card_content .price {
+    order: -1;
+}
+
+.gift_card_content .giftset_description {
+    color: #151D28;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 300;
+
+    margin: 0;
+    margin-bottom: 24px;
+}
+
+.gift_card_content .blend_info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 46px;
+    padding-right: 25px;
+}
+
+.gift_card_content .blend,
+.gift_card_content .blend_area {
+    display: grid;
+    grid-template-areas: "img thin_text"
+                         "img bold_text";
+}
+
+.gift_card_content .blend img,
+.gift_card_content .blend_area img {
+    width: 40px;
+    height: 40px; 
+    grid-area: img;
+}
+
+.gift_card_content .blend p:first-of-type,
+.gift_card_content .blend_area p:first-of-type {
+    margin: 0;
+    margin-left: 12px;
+    grid-area: thin_text;
+
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 300;
+    color:#415167;
+}
+
+.gift_card_content .blend p:last-of-type,
+.gift_card_content .blend_area p:last-of-type {
+    margin: 0;
+    margin-left: 12px;    
+    grid-area: bold_text;
+
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    color:#415167;
+}
+
+.gift_card_content .giftset_links {
+    margin-top: auto;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.gift_card_content .solid_btn {
+    width: 166px;
+    height: 38px;
+    padding: 8px 32px 12px 33px;
+    border-radius: 19px;
+}
+
+.gift_card_content .coffee_card_anchor {
+    width: 200px;
+    height: 38px;
+    padding: 8px 62px;
+    color: #415167;
+}
+
+.coffee_combos {
+    background: linear-gradient(to right, #F9FBFF 50%, #415167 50%);
+    text-align: center;
+}
+
+.combo_container {
+    padding: 88px 0 128px 0;
+    background: linear-gradient(to right, #F9FBFF 1074px, #415167 1074px);
+}
+
+.coffee_combos .coffee_big_cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 30px;
+    position: relative;
+}
+
+.coffee_combos .coffee_big_card {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 562px;
+    background-color: #ffffff;
+}
+
+.coffee_big_card img {
+    order: -2;
+    margin-bottom: 42px;
+}
+
+.coffee_big_card .price_block {
+    margin-bottom: 9px;
+    order: -1;
+    display: flex;
+}
+
+.price_block p {
+    margin: 0;
+    margin-right: 20px;
+}
+
+.coffee_big_card h4 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+
+
+footer {
+    background-color: #EDF0F5;
+    text-align: center;
+    font-style: italic;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
 }

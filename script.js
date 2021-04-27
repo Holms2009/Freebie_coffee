@@ -1,5 +1,7 @@
 'use strict'
 
+// Shop slider:
+
 let btnRight = document.querySelector('.btn_right');
 let btnLeft = document.querySelector('.btn_left');
 let shopCards = document.querySelectorAll('.coffee_card');
@@ -60,3 +62,7 @@ btnLeft.addEventListener('click', function () {
     };
 
 });
+
+// Gift-cards toggle:
+
+let giftCard = document.querySelector('.gift_card');
