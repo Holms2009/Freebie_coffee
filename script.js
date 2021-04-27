@@ -66,3 +66,15 @@ btnLeft.addEventListener('click', function () {
 // Gift-cards toggle:
 
 let giftCard = document.querySelector('.gift_card');
+let buttons = giftCard.querySelectorAll('button');
+
+for (let i=0; i < buttons.length; i++) {
+    addListenerForButton(buttons[i]);
+}
+
+function addListenerForButton(button) {
+    button.addEventListener('click', function() {
+            for (let btn of buttons) btn.classList.remove('selector_btn_active');     
+            button.classList.add('selector_btn_active');
+    })
+}
